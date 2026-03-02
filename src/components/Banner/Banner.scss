@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.banner {
+  position: relative;
+  height: 390px;
+  width: $page-max-width;
+  background-image: url('/src/assets/pictures/image.png');
+  background-size: cover;
+  background-position: center;
+
+  &__content-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    color: $white;
+    padding-left: 100px; 
+    max-width: 500px;
+
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 36px;
+      font-weight: 400;
+      color: $yellow-accent;
+      margin: 10px 0 20px;
+    }
+
+    button {
+      background-color: $yellow-accent;
+      color: $purple-dark;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+}
