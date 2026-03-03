@@ -44,3 +44,47 @@
     object-fit: contain;
   }
 }
+
+// Responsividade
+@media (max-width: $breakpoint-desktop) {
+  .brands {
+    &__container {
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__item {
+      width: 150px;
+      height: 150px;
+    }
+
+    &__logo {
+      width: 80px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .brands {
+    padding: 30px 20px;
+
+    &__title {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    &__container {
+      gap: 15px;
+    }
+
+    &__item {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__logo {
+      width: 60px;
+    }
+  }
+}

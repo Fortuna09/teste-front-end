@@ -164,3 +164,49 @@
     }
   }
 }
+
+// Responsividade
+@media (max-width: $breakpoint-tablet) {
+  .product-popup {
+    &__content {
+      padding: 20px;
+      width: 95%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    &__main {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__image-container {
+      max-width: 200px;
+      margin-right: 0;
+    }
+
+    &__name {
+      font-size: 18px;
+    }
+
+    &__price {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    &__actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__quantity-selector {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &__buy-button {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

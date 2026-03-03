@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# 🛒 Teste Front-End Econverse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Projeto desenvolvido para o desafio técnico de Desenvolvedor Front-End.
 
-Currently, two official plugins are available:
+![Demonstração do Projeto](./src/assets/docs/projeto-demonstracao.gif)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias e Ferramentas
+O projeto foi construído utilizando as melhores práticas do ecossistema React atual:
 
-## Expanding the ESLint configuration
+- **React + Vite**: Performance e rapidez no desenvolvimento.
+- **TypeScript**: Tipagem estática para maior segurança e escalabilidade.
+- **SASS (SCSS)**: Pré-processador para estilização modular e uso de variáveis.
+- **Swiper.js**: Implementação de carrossel robusto e performático.
+- **Conventional Commits**: Histórico de Git organizado e padronizado.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Imagens
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Desktop | Detalhes do Produto (Modal) |
+|---|---|
+| ![Desktop View](./src/assets/docs/desktop.png) | ![PopUp View](./src/assets/docs/popup.png) |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Categorias | Responsivo (Mobile) |
+|---|---|
+| ![Categories View](./src/assets/docs/categories.png) | ![Mobile View](./src/assets/docs/mobile.png) |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Funcionalidades principais
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Integração com API**: Consumo de dados via Fetch API com tratamento de estados (loading/error).
+2.  **Custom Hook (`useProducts`)**: Lógica de negócio separada da interface, facilitando a manutenção.
+3.  **Modal Dinâmico**: Ao clicar em um produto, um modal é renderizado com as informações específicas do JSON.
+4.  **Carrossel Customizado**: Vitrine de produtos com navegação funcional.
+5.  **Pixel Perfect**: Atenção rigorosa às medidas, fontes e cores do Figma.
+6.  **Responsividade**: Layout adaptável para dispositivos móveis e tablets.
+7.  **SEO e Acessibilidade**: Meta tags otimizadas e HTML semântico.
+
+---
+
+## SEO e HTML Semântico
+
+O projeto segue as melhores práticas de otimização para mecanismos de busca e acessibilidade:
+
+### Meta Tags
+- `<meta name="description">` e `<meta name="keywords">` para SEO
+- Open Graph (`og:title`, `og:description`, `og:image`) para compartilhamento em redes sociais
+- Twitter Cards para previews no Twitter/X
+- `lang="pt-BR"` para indicar idioma correto
+
+### HTML Semântico
+- `<header>` para cabeçalho do site
+- `<main>` envolvendo o conteúdo principal
+- `<nav>` para navegação com `role="menubar"`
+- `<section>` para áreas temáticas
+- `<footer>` para rodapé
+- `<article>` para conteúdo independente
+
+### Acessibilidade (A11y)
+- Atributos `aria-label` em botões e navegação
+- `aria-hidden="true"` em ícones decorativos
+- Textos alternativos (`alt`) em todas as imagens
+- Botões com `type="button"` explícito
+
+---
+
+## Como executar o projeto
+
+1. **Clone este repositório**
+   ```bash
+   git clone https://github.com/Fortuna09/teste-front-end

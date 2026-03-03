@@ -25,41 +25,43 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <>
       <Header />
-      <Banner />
-      <Categories />
-      <ProductShowcase 
-        variant="related" 
-        showTabs 
-        products={products}
-        loading={loading}
-        onBuyClick={handleBuyClick}
-      />
-      <Partners />
-      <ProductShowcase 
-        variant="featured" 
-        showViewAll 
-        products={products}
-        loading={loading}
-        onBuyClick={handleBuyClick}
-      />
-      <Partners />
-      <Brands />
-      <ProductShowcase 
-        variant="featured" 
-        showViewAll 
-        products={products}
-        loading={loading}
-        onBuyClick={handleBuyClick}
-      />
-      <Newsletter />
+      <main className="main-content">
+        <Banner />
+        <Categories />
+        <ProductShowcase 
+          variant="related" 
+          showTabs 
+          products={products}
+          loading={loading}
+          onBuyClick={handleBuyClick}
+        />
+        <Partners />
+        <ProductShowcase 
+          variant="featured" 
+          showViewAll 
+          products={products}
+          loading={loading}
+          onBuyClick={handleBuyClick}
+        />
+        <Partners />
+        <Brands />
+        <ProductShowcase 
+          variant="featured" 
+          showViewAll 
+          products={products}
+          loading={loading}
+          onBuyClick={handleBuyClick}
+        />
+        <Newsletter />
+      </main>
       <Footer />
 
       {selectedProduct && (
         <ProductPopup product={selectedProduct} onClose={handleClosePopup} />
       )}
-    </div>
+    </>
   );
 }
 
