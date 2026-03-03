@@ -1,4 +1,6 @@
+@use "sass:color";
 @import '../../styles/variables';
+
 
 .product-card {
   background: $white;
@@ -88,7 +90,7 @@
     font-family: $font-main;
 
     &:hover {
-      background: darken($blue-primary, 10%);
+      background: color.adjust($blue-primary, $lightness: -10%);
     }
   }
 }
