@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+.brands {
+  padding: 40px 40px;
+  font-family: $font-main;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: $blue-primary;
+    margin: 0 0 40px 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &__item {
+    width: 211px;
+    height: 211px;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-3px);
+    }
+  }
+
+  &__logo {
+    width: 117px;
+    height: 35;
+    object-fit: contain;
+  }
+}
