@@ -218,6 +218,7 @@
 
     &__grid {
       gap: 15px;
+      justify-content: center;
     }
 
     &__arrow {
@@ -234,10 +235,12 @@
   .related-products,
   .featured-products {
     padding: 20px 10px;
+    overflow-x: hidden;
 
     &__wrapper {
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
 
     &__arrow {
@@ -247,6 +250,7 @@
     &__container {
       padding: 15px;
       width: 100%;
+      max-width: 100%;
     }
 
     &__title {
@@ -261,6 +265,7 @@
     &__tabs {
       flex-wrap: wrap;
       gap: 5px;
+      justify-content: center;
     }
 
     &__tab {
@@ -270,8 +275,45 @@
     }
 
     &__grid {
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .related-products,
+  .featured-products {
+    padding: 15px 10px;
+
+    &__container {
+      padding: 10px;
+    }
+
+    &__title {
+      font-size: 16px;
+      gap: 10px;
+
+      &::before,
+      &::after {
+        max-width: 50px;
+      }
+    }
+
+    &__tabs {
+      gap: 4px;
+    }
+
+    &__tab {
+      font-size: 10px;
+      padding: 6px 8px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
   }
 }

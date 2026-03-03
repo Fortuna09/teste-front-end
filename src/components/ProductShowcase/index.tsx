@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ProductCard } from '../ProductCard';
 import type { ProductShowcaseProps, Product } from '../../@types/product';
 import { PRODUCT_TABS } from '../../constants';
 import './ProductShowcase.scss';
 
-const ITEMS_PER_PAGE = 4;
+const getItemsPerPage = () => {
+  if (typeof window === 'undefined') return 4;
+  if (window.innerWidth <= 480) return 2;
+  if (window.innerWidth <= 768) return 2;
+  if (window.innerWidth <= 1024) return 3;
+  return 4;
+};
 
 export const ProductShowcase = ({ 
   variant, 
@@ -17,9 +23,20 @@ export const ProductShowcase = ({
 }: ProductShowcaseProps) => {
   const [activeTab, setActiveTab] = useState<string>(PRODUCT_TABS[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(getItemsPerPage());
+      setCurrentIndex(0); // Reset ao redimensionar
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const baseClass = variant === 'related' ? 'related-products' : 'featured-products';
-  const maxIndex = Math.max(0, products.length - ITEMS_PER_PAGE);
+  const maxIndex = Math.max(0, products.length - itemsPerPage);
 
   const handleBuyClick = (product: Product) => {
     if (onBuyClick) {
@@ -33,7 +50,7 @@ export const ProductShowcase = ({
       if (prev === 0) {
         return maxIndex;
       }
-      return Math.max(0, prev - ITEMS_PER_PAGE);
+      return Math.max(0, prev - itemsPerPage);
     });
   };
 
@@ -42,11 +59,11 @@ export const ProductShowcase = ({
       if (prev >= maxIndex) {
         return 0;
       }
-      return Math.min(maxIndex, prev + ITEMS_PER_PAGE);
+      return Math.min(maxIndex, prev + itemsPerPage);
     });
   };
 
-  const visibleProducts = products.slice(currentIndex, currentIndex + ITEMS_PER_PAGE);
+  const visibleProducts = products.slice(currentIndex, currentIndex + itemsPerPage);
 
   if (loading) {
     return <div className={`${baseClass}__loading`}>Carregando...</div>;
