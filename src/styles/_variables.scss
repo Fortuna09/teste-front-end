@@ -1,4 +1,4 @@
-// Colors
+//colors
 $blue-primary: #3442B5;
 $blue-secondary: #3019B2;
 $yellow-accent: #F7CA11;
@@ -7,9 +7,15 @@ $gray-light: #9F9F9F;
 $gray-dark: #3F3F40;
 $white: #FFFFFF;
 
-//Fonts
+//fonts
 $font-main: 'Poppins', sans-serif;
 
-// Sizes
+//sizes
 $page-max-width: 1440px;
 $container-max-width: 1280px;
+
+//breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1280px;

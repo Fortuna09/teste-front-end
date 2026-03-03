@@ -177,3 +177,77 @@
     }
   }
 }
+
+// Responsividade
+@media (max-width: $breakpoint-desktop) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .header {
+    &__top-bar .container {
+      gap: 40px;
+    }
+
+    &__search {
+      flex: 0 1 400px;
+      width: auto;
+    }
+
+    &__nav ul {
+      font-size: 11px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .header {
+    &__top-bar {
+      display: none;
+    }
+
+    &__main .container {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    &__logo img {
+      width: 100px;
+    }
+
+    &__search {
+      flex: 1;
+      margin: 0 15px;
+
+      input {
+        height: 40px;
+        font-size: 12px;
+      }
+    }
+
+    &__actions {
+      gap: 10px;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &__nav {
+      overflow-x: auto;
+
+      ul {
+        justify-content: flex-start;
+        gap: 15px;
+        padding: 0 20px;
+        font-size: 10px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
