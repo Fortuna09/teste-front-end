@@ -19,6 +19,7 @@ export const ProductShowcase = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const baseClass = variant === 'related' ? 'related-products' : 'featured-products';
+  const maxIndex = Math.max(0, products.length - ITEMS_PER_PAGE);
 
   const handleBuyClick = (product: Product) => {
     if (onBuyClick) {
@@ -29,15 +30,19 @@ export const ProductShowcase = ({
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => {
-      const newIndex = prev - ITEMS_PER_PAGE;
-      return newIndex < 0 ? Math.max(0, products.length - ITEMS_PER_PAGE) : newIndex;
+      if (prev === 0) {
+        return maxIndex;
+      }
+      return Math.max(0, prev - ITEMS_PER_PAGE);
     });
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => {
-      const newIndex = prev + ITEMS_PER_PAGE;
-      return newIndex >= products.length ? 0 : newIndex;
+      if (prev >= maxIndex) {
+        return 0;
+      }
+      return Math.min(maxIndex, prev + ITEMS_PER_PAGE);
     });
   };
 
