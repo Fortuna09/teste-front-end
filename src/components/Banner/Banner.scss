@@ -50,6 +50,10 @@
     font-weight: 600;
     cursor: pointer;
     border-radius: 5px;
+
+    &:hover {
+      background-color: darken($yellow-accent, 5%);
+    }
   }
 }
 
