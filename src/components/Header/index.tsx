@@ -38,23 +38,31 @@ export const Header = () => {
             </button> 
           </div>
 
-          <div className="header__actions">
-            <img src={boxIcon} alt="Pedidos" className="icon icon--small" />
-            <img src={heartIcon} alt="Favoritos" className="icon" />
-            <img src={userIcon} alt="Minha Conta" className="icon" />
-            <img src={cartIcon} alt="Carrinho" className="icon" />
-          </div>
+          <nav className="header__actions" aria-label="Ações do usuário">
+            <button type="button" aria-label="Meus Pedidos" className="icon-btn">
+              <img src={boxIcon} alt="" aria-hidden="true" className="icon icon--small" />
+            </button>
+            <button type="button" aria-label="Favoritos" className="icon-btn">
+              <img src={heartIcon} alt="" aria-hidden="true" className="icon" />
+            </button>
+            <button type="button" aria-label="Minha Conta" className="icon-btn">
+              <img src={userIcon} alt="" aria-hidden="true" className="icon" />
+            </button>
+            <button type="button" aria-label="Carrinho de Compras" className="icon-btn">
+              <img src={cartIcon} alt="" aria-hidden="true" className="icon" />
+            </button>
+          </nav>
         </div>
       </div>
 
       {/*nav categorias */}
-      <nav className="header__nav">
+      <nav className="header__nav" aria-label="Categorias principais">
         <div className="container">
-          <ul>
+          <ul role="menubar">
             {NAV_CATEGORIES.map((category) => (
-              <li key={category}>{category}</li>
+              <li key={category} role="menuitem">{category}</li>
             ))}
-            <li><img src={premiumIcon} alt="" className="nav-icon" />ASSINATURA</li>
+            <li role="menuitem"><img src={premiumIcon} alt="" aria-hidden="true" className="nav-icon" />ASSINATURA</li>
           </ul>
         </div>
       </nav>

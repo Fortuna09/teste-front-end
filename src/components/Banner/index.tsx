@@ -2,13 +2,13 @@ import './Banner.scss';
 
 export const Banner = () => {
   return (
-    <section className="banner">
+    <section className="banner" aria-label="Promoções em destaque">
       <div className="banner__content-wrapper">
-        <div className="banner__content">
+        <article className="banner__content">
           <h1>Venha conhecer nossas promoções</h1>
-          <h2>50% Off nos produtos</h2>
-          <button>Ver produto</button>
-        </div>
+          <p className="banner__discount">50% Off nos produtos</p>
+          <button type="button" aria-label="Ver produtos em promoção">Ver produto</button>
+        </article>
       </div>
     </section>
   );
