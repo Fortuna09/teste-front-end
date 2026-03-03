@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import type { Product, ApiResponse } from '../@types/product';
+import type { Product } from '../@types/product';
+import { productService } from '../service/productService';
 
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json')
-      .then((res) => res.json())
-      .then((data: ApiResponse) => {
+    productService.getProducts()
+      .then((data) => {
         setProducts(data.products);
         setLoading(false);
       })

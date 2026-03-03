@@ -1,15 +1,18 @@
 @import '../../styles/variables';
 
 .container {
-  max-width: $container-max-width;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 0;
+  padding: 0 80px;
+  box-sizing: border-box;
 }
 
 .header {
+  width: 100%;
   font-family: $font-main;
+  overflow-x: hidden;
 
   &__top-bar {
     color: $gray-light;
@@ -27,8 +30,7 @@
         content: '';
         position: absolute;
         bottom: -8px;
-        left: 0;
-        right: 0;
+        width: 1280px;
         height: 2px;
         background-color: #F0F0F0;
       }
@@ -53,6 +55,11 @@
 
   &__main {
     height: 72px;
+
+    .container {
+      width: 1440px;
+      margin: 0 auto;
+    }
   }
 
   &__logo {
@@ -117,7 +124,9 @@
   &__nav {
     .container {
       position: relative;
-      box-shadow: 16px 0 16px -16px rgba(0, 0, 0, 0.3), -16px 0 16px -16px rgba(0, 0, 0, 0.3);
+      max-width: $container-max-width;
+      margin: 0 auto;
+      box-shadow: 12px 0 10px -10px rgba(0, 0, 0, 0.15), -12px 0 10px -10px rgba(0, 0, 0, 0.15);
 
       &::before {
         content: '';
@@ -138,7 +147,7 @@
       height: 40px;
       align-items: center;
       margin: 0;
-      padding: 0 60px;
+      padding: 0;
     }
 
     li {

@@ -1,7 +1,18 @@
 @import 'variables';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  max-width: $page-max-width;
+  width: 100%;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  overflow-x: hidden;
 }
 

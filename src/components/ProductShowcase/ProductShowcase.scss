@@ -1,0 +1,203 @@
+@import '../../styles/variables';
+
+.related-products {
+  padding: 40px 40px;
+  font-family: $font-main;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &__container {
+    flex: 1;
+    padding: 30px 30px;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: $blue-primary;
+    margin: 0 0 20px 0;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      max-width: 400px;
+      min-width: 50px;
+      height: 1px;
+      background-color: #E0E0E0;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: stretch;
+    margin-bottom: 30px;
+  }
+
+  &__tab {
+    flex: 1;
+    height: 40px;
+    padding: 10px 15px;
+    border: 1px solid #E0E0E0;
+    background: $white;
+    font-size: 14px;
+    color: #3B3B3B;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: $font-main;
+    white-space: nowrap;
+    text-align: center;
+
+    &:hover {
+      border-color: $blue-primary;
+      color: $blue-primary;
+    }
+
+    &.active {
+      border-color: $blue-primary;
+      color: $blue-primary;
+      background: $white;
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: $white;
+    font-size: 24px;
+    color: $gray-light;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 380px;
+
+    &:hover {
+      border-color: $blue-primary;
+      color: $blue-primary;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: $gray-light;
+  }
+}
+
+.featured-products {
+  padding: 40px 40px;
+  font-family: $font-main;
+  width: 100%;
+  box-sizing: border-box;
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &__container {
+    flex: 1;
+    padding: 30px 30px;
+    box-sizing: border-box;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: $blue-primary;
+    margin: 0 0 10px 0;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      max-width: 400px;
+      min-width: 50px;
+      height: 1px;
+      background-color: #E0E0E0;
+    }
+  }
+
+  &__view-all {
+    display: block;
+    margin: 0 auto 30px auto;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3B3B3B;
+    cursor: pointer;
+    font-family: $font-main;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $blue-primary;
+    }
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: $white;
+    font-size: 24px;
+    color: $gray-light;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 280px;
+
+    &:hover {
+      border-color: $blue-primary;
+      color: $blue-primary;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: $gray-light;
+  }
+}

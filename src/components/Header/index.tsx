@@ -1,52 +1,60 @@
+import logo from '../../assets/logo-econverse.png';
+import safeIcon from '../../assets/icons/safe.png';
+import truckIcon from '../../assets/icons/truck.png';
+import cardIcon from '../../assets/icons/card.png';
+import searchIcon from '../../assets/icons/search.png';
+import boxIcon from '../../assets/icons/box.png';
+import heartIcon from '../../assets/icons/heart.png';
+import userIcon from '../../assets/icons/user.png';
+import cartIcon from '../../assets/icons/cart.png';
+import premiumIcon from '../../assets/icons/premium.png';
+import { NAV_CATEGORIES } from '../../constants';
 import './Header.scss';
 
 
 export const Header = () => {
   return (
     <header className="header">
-      {/* 1. Barra de Benefícios (Top) */}
+      {/*vantagens */}
       <div className="header__top-bar">
         <div className="container">
-          <span><img src="/src/assets/icons/safe.png" alt="Seguro" />Compra <strong>100% segura</strong></span>
-          <span><img src="/src/assets/icons/truck.png" alt="Frete" /><strong>Frete grátis</strong> acima de R$ 200</span>
-          <span><img src="/src/assets/icons/card.png" alt="Cartão" /><strong>Parcele</strong> suas compras</span>
+          <span><img src={safeIcon} alt="Seguro" />Compra <strong>100% segura</strong></span>
+          <span><img src={truckIcon} alt="Frete" /><strong>Frete grátis</strong> acima de R$ 200</span>
+          <span><img src={cardIcon} alt="Cartão" /><strong>Parcele</strong> suas compras</span>
         </div>
       </div>
 
-      {/* 2. Header Principal */}
+      {/*header main */}
       <div className="header__main">
         <div className="container">
           <div className="header__logo">
-            <img src="/src/assets/logo-econverse.png" alt="Econverse Logo" />
+            <img src={logo} alt="Econverse Logo" />
           </div>
           
           <div className="header__search">
             <input type="text" placeholder="O que você está buscando?" />
             <button className="search-icon">
-              <img src="/src/assets/icons/search.png" alt="Buscar" />
+              <img src={searchIcon} alt="Buscar" />
             </button> 
           </div>
 
           <div className="header__actions">
-            <img src="/src/assets/icons/box.png" alt="Pedidos" className="icon icon--small" />
-            <img src="/src/assets/icons/heart.png" alt="Favoritos" className="icon" />
-            <img src="/src/assets/icons/user.png" alt="Minha Conta" className="icon" />
-            <img src="/src/assets/icons/cart.png" alt="Carrinho" className="icon" />
+            <img src={boxIcon} alt="Pedidos" className="icon icon--small" />
+            <img src={heartIcon} alt="Favoritos" className="icon" />
+            <img src={userIcon} alt="Minha Conta" className="icon" />
+            <img src={cartIcon} alt="Carrinho" className="icon" />
           </div>
         </div>
       </div>
 
-      {/* 3. Navegação de Categorias */}
+      {/*nav categorias */}
       <nav className="header__nav">
         <div className="container">
           <ul>
-            <li>TODAS CATEGORIAS</li>
-            <li>SUPERMERCADO</li>
-            <li>LIVROS</li>
-            <li>MODA</li>
-            <li>LANÇAMENTOS</li>
-            <li>OFERTAS DO DIA</li>
-            <li><img src="/src/assets/icons/premium.png" alt="" className="nav-icon" />ASSINATURA</li>
+            {NAV_CATEGORIES.map((category) => (
+              <li key={category}>{category}</li>
+            ))}
+            <li><img src={premiumIcon} alt="" className="nav-icon" />ASSINATURA</li>
           </ul>
         </div>
       </nav>
