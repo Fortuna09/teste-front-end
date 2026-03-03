@@ -4,6 +4,8 @@ import type { ProductShowcaseProps, Product } from '../../@types/product';
 import { PRODUCT_TABS } from '../../constants';
 import './ProductShowcase.scss';
 
+const ITEMS_PER_PAGE = 4;
+
 export const ProductShowcase = ({ 
   variant, 
   title = 'Produtos relacionados',
@@ -14,8 +16,10 @@ export const ProductShowcase = ({
   onBuyClick
 }: ProductShowcaseProps) => {
   const [activeTab, setActiveTab] = useState<string>(PRODUCT_TABS[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const baseClass = variant === 'related' ? 'related-products' : 'featured-products';
+  const maxIndex = Math.max(0, products.length - ITEMS_PER_PAGE);
 
   const handleBuyClick = (product: Product) => {
     if (onBuyClick) {
@@ -24,6 +28,26 @@ export const ProductShowcase = ({
     console.log('Produto selecionado:', product);
   };
 
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => {
+      if (prev === 0) {
+        return maxIndex;
+      }
+      return Math.max(0, prev - ITEMS_PER_PAGE);
+    });
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => {
+      if (prev >= maxIndex) {
+        return 0;
+      }
+      return Math.min(maxIndex, prev + ITEMS_PER_PAGE);
+    });
+  };
+
+  const visibleProducts = products.slice(currentIndex, currentIndex + ITEMS_PER_PAGE);
+
   if (loading) {
     return <div className={`${baseClass}__loading`}>Carregando...</div>;
   }
@@ -31,7 +55,11 @@ export const ProductShowcase = ({
   return (
     <section className={baseClass}>
       <div className={`${baseClass}__wrapper`}>
-        <button className={`${baseClass}__arrow ${baseClass}__arrow--left`}>
+        <button 
+          className={`${baseClass}__arrow ${baseClass}__arrow--left`}
+          onClick={handlePrevious}
+          aria-label="Produtos anteriores"
+        >
           &#8249;
         </button>
 
@@ -57,9 +85,9 @@ export const ProductShowcase = ({
           )}
 
           <div className={`${baseClass}__grid`}>
-            {products.slice(0, 4).map((product, index) => (
+            {visibleProducts.map((product, index) => (
               <ProductCard 
-                key={index} 
+                key={product.price || index} 
                 product={product} 
                 onBuyClick={handleBuyClick}
               />
@@ -67,7 +95,11 @@ export const ProductShowcase = ({
           </div>
         </div>
 
-        <button className={`${baseClass}__arrow ${baseClass}__arrow--right`}>
+        <button 
+          className={`${baseClass}__arrow ${baseClass}__arrow--right`}
+          onClick={handleNext}
+          aria-label="Próximos produtos"
+        >
           &#8250;
         </button>
       </div>
