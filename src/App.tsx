@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Header } from './components/Header';
 import { Banner } from './components/Banner';
 import { Categories } from './components/Categories';
@@ -6,15 +7,21 @@ import { Partners } from './components/Partners';
 import { Brands } from './components/Brands';
 import { Newsletter } from './components/Newsletter';
 import { Footer } from './components/Footer';
+import { ProductPopup } from './components/ProductPopup';
 import { useProducts } from './hooks/useProducts';
 import type { Product } from './@types/product';
 import './styles/main.scss';
 
 function App() {
   const { products, loading } = useProducts();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const handleBuyClick = (product: Product) => {
-    console.log('Comprar produto:', product);
+    setSelectedProduct(product);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedProduct(null);
   };
 
   return (
@@ -48,6 +55,10 @@ function App() {
       />
       <Newsletter />
       <Footer />
+
+      {selectedProduct && (
+        <ProductPopup product={selectedProduct} onClose={handleClosePopup} />
+      )}
     </div>
   );
 }
